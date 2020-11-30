@@ -28,7 +28,7 @@
     {% endblock formmedia %}
   </head>
   <body>
-    {# comment #}
+    {% comment %}
     <nav class="navbar navbar-expand-sm navbar-light">
       <a class="navbar-brand" href="{% url 'index' %}"><img class="d-inline-block mr-1" height=50 src="{% static 'app/logo.png' %}">Berkeley Pi Lam</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
         </ul>
       </div>
     </nav>
-    {# endcomment #}
+    {% endcomment %}
     <div id="content" class='container'>
       {% bootstrap_messages %}
       <section class='my-5'>
