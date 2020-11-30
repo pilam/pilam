@@ -1,9 +1,9 @@
 # Django
+# Third-Party
+from hashid_field import HashidAutoField
+
 from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
-
-# First-Party
-from hashid_field import HashidAutoField
 
 # Local
 from .managers import UserManager
@@ -16,15 +16,8 @@ class User(AbstractBaseUser):
     username = models.CharField(
         max_length=150,
         blank=False,
+        null=False,
         unique=True,
-    )
-    email = models.EmailField(
-        blank=False,
-        unique=True,
-    )
-    name = models.CharField(
-        max_length=255,
-        blank=False,
     )
     is_active = models.BooleanField(
         default=False,
@@ -41,8 +34,6 @@ class User(AbstractBaseUser):
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = [
-        'name',
-        'email',
     ]
 
     objects = UserManager()
@@ -52,7 +43,7 @@ class User(AbstractBaseUser):
         return self.is_admin
 
     def __str__(self):
-        return str(self.name)
+        return str(self.username)
 
     def has_perm(self, perm, obj=None):
         return True

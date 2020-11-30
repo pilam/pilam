@@ -1,12 +1,8 @@
-# # Django
 # Django
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as UserAdminBase
-# from django.urls import reverse
-from django.utils.safestring import mark_safe
 
 # Local
-# # Local
 from .forms import UserChangeForm
 from .forms import UserCreationForm
 from .models import User
@@ -21,8 +17,6 @@ class UserAdmin(UserAdminBase):
     fieldsets = (
         (None, {
             'fields': [
-                'name',
-                'email',
                 'username',
             ]
         }
@@ -30,7 +24,7 @@ class UserAdmin(UserAdminBase):
         ('Permissions', {'fields': ('is_admin', 'is_active')}),
     )
     list_display = [
-        'name',
+        'username',
         'created',
         'last_login'
     ]
@@ -41,8 +35,6 @@ class UserAdmin(UserAdminBase):
         'last_login',
     ]
     search_fields = [
-        'name',
-        'email',
         'username',
     ]
     ordering = [
@@ -52,8 +44,6 @@ class UserAdmin(UserAdminBase):
         (None, {
             'classes': ('wide',),
             'fields': [
-                'name',
-                'email',
                 'username',
                 'is_admin',
                 'is_active',
@@ -64,11 +54,3 @@ class UserAdmin(UserAdminBase):
     filter_horizontal = ()
     inlines = [
     ]
-
-    def email_link(self, obj):
-        return mark_safe(
-            '<a href="mailto:{0}">{0}</a>'.format(
-                obj.email,
-            )
-        )
-    email_link.short_description = 'email'
