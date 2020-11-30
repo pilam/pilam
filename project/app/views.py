@@ -1,9 +1,6 @@
 # Standard Libary
 import json
 
-# Third-Party
-import requests
-
 # Django
 from django.conf import settings
 from django.contrib import messages
@@ -18,30 +15,15 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.crypto import get_random_string
 
+# First-Party
+import requests
+
 
 # Root
 def index(request):
     return render(
         request,
         'app/index.html',
-    )
-
-def robots(request):
-    rendered = render_to_string(
-        'robots.txt',
-    )
-    return HttpResponse(
-        rendered,
-        content_type="text/plain",
-    )
-
-def sitemap(request):
-    rendered = render_to_string(
-        'sitemap.txt',
-    )
-    return HttpResponse(
-        rendered,
-        content_type="text/plain",
     )
 
 
