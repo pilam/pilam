@@ -1,5 +1,5 @@
 # Local
-# First-Party
+# Third-Party
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
@@ -19,8 +19,9 @@ EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 
 # Sentry
+SENTRY_DSN = env("SENTRY_DSN")
 sentry_sdk.init(
-    dsn=env("SENTRY_DSN"),
+    dsn=SENTRY_DSN,
     integrations=[
         DjangoIntegration(),
         RqIntegration(),
