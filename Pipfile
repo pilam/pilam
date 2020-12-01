@@ -34,6 +34,8 @@ nameparser = "*"
 django-phone-field = "*"
 django-address = "*"
 django-cloudinary-storage = "*"
+django-reversion = "*"
+django-names = "*"
 
 [requires]
 python_version = "3.9"
