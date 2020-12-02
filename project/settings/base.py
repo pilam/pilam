@@ -241,9 +241,11 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'django_rq',
     'bootstrap4',
+    'reversion',
     'cloudinary_storage',
     'cloudinary',
+    'names',
     'address',
-    'phone_field',
+    'phonenumber_field',
     'app',
 ]

@@ -2,11 +2,19 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as UserAdminBase
 
+# First-Party
+from reversion.admin import VersionAdmin
+
 # Local
 from .forms import UserChangeForm
 from .forms import UserCreationForm
+from .models import Brother
 from .models import User
 
+
+@admin.register(Brother)
+class BrotherAdmin(VersionAdmin):
+    pass
 
 @admin.register(User)
 class UserAdmin(UserAdminBase):
