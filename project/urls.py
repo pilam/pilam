@@ -2,9 +2,12 @@
 # Django
 from django.conf import settings
 from django.contrib import admin
+from django.http import Http404
 from django.shortcuts import render
 from django.urls import include
 from django.urls import path
+from django.views.defaults import page_not_found
+from django.views.defaults import server_error
 from django.views.generic import TemplateView
 
 # First-Party
@@ -26,18 +29,22 @@ urlpatterns = [
 
 if settings.DEBUG:
     import debug_toolbar
+    def custom_page_not_found(request):
+        return page_not_found(request, None)
+
     urlpatterns += [
         path('__debug__/', include(debug_toolbar.urls)),
+        path('404/', custom_page_not_found),
+        path('500/', server_error),
     ]
 else:
-    def handler(request, *args, **argv):
+    def handler500(request, *args, **argv):
         return render(
             request,
-            "app/500.html",
+            '500.html',
             {
                 'sentry_dsn': settings.SENTRY_DSN,
                 'sentry_event_id': last_event_id(),
             },
             status=500,
         )
-    handler500 = handler
