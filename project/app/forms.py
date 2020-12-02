@@ -1,9 +1,29 @@
 # Django
 from django.contrib.auth.forms import UserChangeForm as UserChangeFormBase
 from django.contrib.auth.forms import UserCreationForm as UserCreationFormBase
+from django.forms import ModelForm
 
 # Local
+from .models import Brother
 from .models import User
+
+
+class BrotherForm(ModelForm):
+    class Meta:
+        model = Brother
+        fields = [
+            'name',
+            'email',
+            'phone',
+        ]
+
+    def clean_email(self):
+        data = self.cleaned_data['email']
+        return data.lower()
+
+    def clean_name(self):
+        data = self.cleaned_data['name']
+        return data.title()
 
 
 class UserCreationForm(UserCreationFormBase):

@@ -58,9 +58,6 @@ AUTH0_CLIENT_ID = env("AUTH0_CLIENT_ID")
 AUTH0_CLIENT_SECRET = env("AUTH0_CLIENT_SECRET")
 AUTH0_DOMAIN = env("AUTH0_DOMAIN")
 
-#Cloudinary
-CLOUDINARY_URL = env("CLOUDINARY_URL")
-
 # Database
 DATABASES = {
     'default': env.db()
@@ -106,10 +103,15 @@ STATIC_URL = '/static/'
 # Media File Management
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT = root('mediafiles')
-MEDIA_URL = '/pilam/'
+MEDIA_URL = '/media/'
+CLOUDINARY_URL = env("CLOUDINARY_URL")
 
 # Google
 GOOGLE_API_KEY = env("GOOGLE_API_KEY")
+
+# Phone Numbers
+PHONENUMBER_DB_FORMAT = 'NATIONAL'
+PHONENUMBER_DEFAULT_REGION = 'US'
 
 # Bootstrap
 BOOTSTRAP4 = {
@@ -240,12 +242,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'django_rq',
-    'bootstrap4',
-    'reversion',
     'cloudinary_storage',
     'cloudinary',
-    'names',
-    'address',
+    'bootstrap4',
+    'reversion',
     'phonenumber_field',
+    'address',
     'app',
 ]

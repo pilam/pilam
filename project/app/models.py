@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 
 # First-Party
+import reversion
 from address.models import AddressField
 from hashid_field import HashidAutoField
 from model_utils import Choices
@@ -77,6 +78,9 @@ class Person(models.Model):
         blank=True,
         null=True,
     )
+
+    def __str__(self):
+        return str(self.name)
 
     def save(self, *args, **kwargs):
         instance = self._parse(name=self.name)

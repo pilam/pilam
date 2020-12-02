@@ -14,7 +14,26 @@ from .models import User
 
 @admin.register(Brother)
 class BrotherAdmin(VersionAdmin):
-    pass
+    save_on_top = True
+    fields = [
+        'name',
+        'email',
+        'phone',
+        'address',
+    ]
+    list_display = [
+        'name',
+        'email',
+        'phone',
+        'address',
+    ]
+    search_fields = [
+        'name',
+    ]
+    ordering = [
+        'last_name',
+        'first_name',
+    ]
 
 @admin.register(User)
 class UserAdmin(UserAdminBase):

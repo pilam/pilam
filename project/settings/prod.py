@@ -1,5 +1,5 @@
 # Local
-# Third-Party
+# First-Party
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
@@ -17,6 +17,11 @@ ALLOWED_HOSTS = [
 # SendGrid
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
+
+# Cloudinary
+CLOUDINARY_STORAGE = {
+    'PREFIX': 'pilam',
+}
 
 # Sentry
 SENTRY_DSN = env("SENTRY_DSN")

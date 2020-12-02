@@ -18,6 +18,11 @@ MIDDLEWARE += [
     'querycount.middleware.QueryCountMiddleware',
 ]
 
+# Cloudinary
+CLOUDINARY_STORAGE = {
+    'PREFIX': 'pilam-dev',
+}
+
 # Async settings
 RQ_QUEUES['default']['ASYNC'] = False
 
