@@ -51,10 +51,21 @@ class UserAdmin(UserAdminBase):
             ]
         }
         ),
+        ('Data', {
+            'fields': [
+                'name',
+                'email',
+                'phone',
+            ]
+        }
+        ),
         ('Permissions', {'fields': ('is_admin', 'is_active')}),
     )
     list_display = [
-        'username',
+        # 'username',
+        'name',
+        'email',
+        'phone',
         'created',
         'last_login'
     ]
@@ -66,6 +77,9 @@ class UserAdmin(UserAdminBase):
     ]
     search_fields = [
         'username',
+        'name',
+        'email',
+        'phone',
     ]
     ordering = [
         '-created',
@@ -84,7 +98,11 @@ class UserAdmin(UserAdminBase):
     filter_horizontal = ()
     inlines = [
     ]
-
+    readonly_fields = [
+        'name',
+        'email',
+        'phone',
+    ]
 # Use Auth0 for login
 admin.site.login = staff_member_required(
     admin.site.login,

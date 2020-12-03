@@ -132,6 +132,38 @@ class User(AbstractBaseUser):
         null=False,
         unique=True,
     )
+    data = models.JSONField(
+        null=True,
+        editable=False,
+    )
+    name = models.CharField(
+        max_length=100,
+        blank=True,
+        verbose_name="Name",
+        editable=False,
+    )
+    first_name = models.CharField(
+        max_length=100,
+        blank=True,
+        verbose_name="First Name",
+        editable=False,
+    )
+    last_name = models.CharField(
+        max_length=100,
+        blank=True,
+        verbose_name="Last Name",
+        editable=False,
+    )
+    email = models.EmailField(
+        blank=True,
+        null=True,
+        editable=False,
+    )
+    phone = PhoneNumberField(
+        blank=True,
+        null=True,
+        editable=False,
+    )
     is_active = models.BooleanField(
         default=True,
     )
