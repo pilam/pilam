@@ -133,7 +133,7 @@ class User(AbstractBaseUser):
         unique=True,
     )
     is_active = models.BooleanField(
-        default=False,
+        default=True,
     )
     is_admin = models.BooleanField(
         default=False,
