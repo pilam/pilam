@@ -8,6 +8,9 @@ urlpatterns = [
     # Root
     path('', views.index, name='index',),
 
+    path('privacy/', views.privacy, name='privacy',),
+    path('delete/', views.delete, name='delete',),
+
     # Authentication
     path('login', views.login, name='login'),
     path('callback', views.callback, name='callback'),
