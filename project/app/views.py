@@ -122,6 +122,12 @@ def logout(request):
     )
     return redirect(logout_url)
 
+def about(request):
+    return render(
+        request,
+        'app/about.html',
+    )
+
 def privacy(request):
     return render(
         request,
