@@ -1,10 +1,9 @@
 # Django
-from django.contrib.auth.models import AbstractBaseUser
-from django.db import models
-
 # First-Party
 import reversion
 from address.models import AddressField
+from django.contrib.auth.models import AbstractBaseUser
+from django.db import models
 from hashid_field import HashidAutoField
 from model_utils import Choices
 from nameparser import HumanName
@@ -139,27 +138,11 @@ class User(AbstractBaseUser):
     name = models.CharField(
         max_length=100,
         blank=True,
+        default='(Unknown)',
         verbose_name="Name",
         editable=False,
     )
-    first_name = models.CharField(
-        max_length=100,
-        blank=True,
-        verbose_name="First Name",
-        editable=False,
-    )
-    last_name = models.CharField(
-        max_length=100,
-        blank=True,
-        verbose_name="Last Name",
-        editable=False,
-    )
     email = models.EmailField(
-        blank=True,
-        null=True,
-        editable=False,
-    )
-    phone = PhoneNumberField(
         blank=True,
         null=True,
         editable=False,

@@ -1,10 +1,9 @@
 # tasks.py
 # Django
-from django.conf import settings
-
 # First-Party
 from auth0.v3.authentication import GetToken
 from auth0.v3.management import Auth0
+from django.conf import settings
 from django_rq import job
 
 
@@ -36,9 +35,6 @@ def update_user(user):
     data = get_user_data(user.username)
     user.data = data
     user.name = data.get('name', '')
-    user.first_name = data.get('given_name', '')
-    user.last_name = data.get('family_name', '')
     user.email = data.get('email', None)
-    user.phone = data.get('phone_number', None)
     user.save()
     return user

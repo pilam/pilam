@@ -4,7 +4,6 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.admin import UserAdmin as UserAdminBase
-
 # First-Party
 from reversion.admin import VersionAdmin
 
@@ -55,7 +54,6 @@ class UserAdmin(UserAdminBase):
             'fields': [
                 'name',
                 'email',
-                'phone',
             ]
         }
         ),
@@ -65,7 +63,6 @@ class UserAdmin(UserAdminBase):
         # 'username',
         'name',
         'email',
-        'phone',
         'created',
         'last_login'
     ]
@@ -79,7 +76,6 @@ class UserAdmin(UserAdminBase):
         'username',
         'name',
         'email',
-        'phone',
     ]
     ordering = [
         '-created',
@@ -101,7 +97,6 @@ class UserAdmin(UserAdminBase):
     readonly_fields = [
         'name',
         'email',
-        'phone',
     ]
 # Use Auth0 for login
 admin.site.login = staff_member_required(
