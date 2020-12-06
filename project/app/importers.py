@@ -9,8 +9,8 @@ from .forms import BrotherForm
 from .models import User
 
 
-def import_contacts(path='/Users/dbinetti/Desktop/tau.csv'):
-    user = User.objects.get(username='admin')
+def import_contacts(path, username):
+    user = User.objects.get(username=username)
     with open(path, 'r') as f:
         next(f)
         reader = csv.reader(f)
