@@ -73,6 +73,12 @@
         },
         "CLOUDINARY_URL": {
           "generator": "secret"
+        },
+        "SENTRY_DSN": {
+          "generator": "secret"
+        },
+        "SENTRY_ENVIRONMENT": {
+          "generator": "secret"
         }
       },
       "scripts": {

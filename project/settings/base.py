@@ -1,13 +1,6 @@
-# Standard Library
-# Standard Libary
 import logging.config
-import os
 
-# Django
-from django.contrib.messages import constants as messages
 from django.utils.log import DEFAULT_LOGGING
-
-# First-Party
 from environ import Env
 from environ import Path
 
@@ -15,7 +8,7 @@ from environ import Path
 env = Env(
     DEBUG=(bool, False),
     DEFAULT_FROM_EMAIL=(str, 'webmaster@localhost'),
-    TIME_ZONE=(str, 'US/Pacific'),
+    TIME_ZONE=(str, 'US/Mountain'),
     EMAIL_URL=(str, 'smtp://localhost:1025'),
     REDIS_URL=(str, 'redis://localhost:6379/0'),
     LOGLEVEL=(str, 'INFO'),
@@ -112,6 +105,14 @@ GOOGLE_API_KEY = env("GOOGLE_API_KEY")
 # Phone Numbers
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
 PHONENUMBER_DEFAULT_REGION = 'US'
+
+# Sentry
+
+SENTRY_DSN = env("SENTRY_DSN")
+SENTRY_ENVIRONMENT = env("SENTRY_ENVIRONMENT")
+SENTRY_CONFIG = {
+    'send_default_pii': True,
+}
 
 # Bootstrap
 BOOTSTRAP4 = {
