@@ -11,9 +11,6 @@ ALLOWED_HOSTS = [
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 
-# Sentry
-# SENTRY_CONFIG['release'] = env("HEROKU_SLUG_COMMIT")
-
 # Cloudinary
 CLOUDINARY_STORAGE = {
     'PREFIX': 'pilam',
