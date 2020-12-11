@@ -8,6 +8,9 @@ from django.views.defaults import server_error
 from django.views.generic import TemplateView
 from sentry_sdk import last_event_id
 
+
+def trigger_error(request):
+    return 1 / 0
 urlpatterns = [
     path('', include('app.urls')),
     path('admin/', admin.site.urls),
@@ -20,6 +23,7 @@ urlpatterns = [
         template_name='sitemap.txt',
         content_type='text/plain"',
     )),
+    path('sentry-debug/', trigger_error),
 ]
 
 if settings.DEBUG:

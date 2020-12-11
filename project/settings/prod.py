@@ -15,3 +15,6 @@ SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 CLOUDINARY_STORAGE = {
     'PREFIX': 'pilam',
 }
+
+# Sentry
+SENTRY_CONFIG['release'] = env("HEROKU_SLUG_COMMIT")
