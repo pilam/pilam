@@ -16,7 +16,6 @@ env = Env(
 
 root = Path(__file__) - 2
 
-
 # Common
 SECRET_KEY = env("SECRET_KEY")
 ROOT_URLCONF = 'urls'
