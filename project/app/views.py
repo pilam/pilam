@@ -51,6 +51,7 @@ def login(request):
         'scope': 'openid profile email',
         'redirect_uri': redirect_uri,
         'state': state,
+        'screen_hint': 'signup',
     }
     url = requests.Request(
         'GET',
