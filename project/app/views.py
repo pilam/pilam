@@ -13,7 +13,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.shortcuts import render
-from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.crypto import get_random_string
 
@@ -122,21 +121,3 @@ def logout(request):
         "You Have Been Logged Out!",
     )
     return redirect(logout_url)
-
-def about(request):
-    return render(
-        request,
-        'app/about.html',
-    )
-
-def privacy(request):
-    return render(
-        request,
-        'app/privacy.html',
-    )
-
-def delete(request):
-    return render(
-        request,
-        'app/delete.html',
-    )
