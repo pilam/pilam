@@ -49,3 +49,10 @@ def update_user(user):
     user.email = data.get('email', None)
     user.save()
     return user
+
+
+@job
+def delete_user(user_id):
+    client = get_auth0_client()
+    response = client.users.delete(user_id)
+    return response
